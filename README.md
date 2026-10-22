@@ -2,77 +2,100 @@
 
 **One thoughtful question a day. Two honest answers. A little closer every time.**
 
-Twofold is a responsive couples-connection app prototype built to explore product engineering fundamentals: a complete interaction flow, clear feedback states, accessibility basics, and a deliberate path toward a secure multi-user backend.
+Twofold is a responsive couples-connection web app prototype built to explore product engineering fundamentals through a simple, interactive user experience.
 
-## Current status
+**Live Demo:** https://twofold-weld.vercel.app  
+**Repository:** https://github.com/nainitiwari303/twofold
 
-**Phase 1 — interactive local demo.** The current version stores demo state in the browser's `localStorage`. It is useful for testing the UI and interaction flow, but it does **not** synchronize across devices or provide real account authentication. Do not use it for private or sensitive information.
+## Overview
 
-### Implemented
+Twofold gives two partners a shared space to respond to a daily relationship question. The experience focuses on thoughtful prompts, answer validation, clear feedback, and revealing responses only after both partners have saved their answers.
 
-- Responsive desktop and mobile dashboard
-- Daily prompt selection from a small built-in question bank
-- Answer drafting, validation, save state, and character counter
-- Demo partner switch to test both sides of the answer flow
-- Reveal gate that only unlocks after both demo answers are saved
+This project is an opportunity to explore frontend development, UI state management, accessibility basics, and user-centred product design.
+
+## Features
+
+- Responsive dashboard for desktop and mobile screens
+- Daily prompts selected from a built-in question bank
+- Answer drafting, validation, and character counting
+- Demo partner switching to test both sides of the interaction
+- Answer reveal gate that unlocks after both demo answers are saved
 - Editable demo names and room code
-- Copy room code, reset demo, status notifications, and accessible dialog labels
-- Persistent local demo state with a storage-failure fallback
-- Reduced-motion support and keyboard focus indicators
+- Copyable room code
+- Reset functionality and status notifications
+- Accessible dialog labels and feedback for key interactions
+- Browser-based persistence using `localStorage`
 
-### Planned next
+## Technology Stack
 
-- Supabase authentication and real room membership
-- Database-backed prompts and answers
-- Row Level Security policies that prevent a partner from reading the other answer before reveal
-- Automated tests for validation and reveal rules
-- Deployment and a short demo recording
+- **Frontend:** React, TypeScript
+- **Build tool:** Vite
+- **Styling:** CSS
+- **Persistence:** Browser `localStorage`
+- **Deployment:** Vercel
+- **Version control:** Git and GitHub
 
-## Run locally
+## Current Project Status
 
-Requirements: Node.js 20+ and npm.
+Twofold is currently a **Phase 1 interactive local demo**.
+
+The app saves demo state in the browser's `localStorage`, allowing the same browser to retain state across refreshes. It does not currently provide real multi-device synchronization or production account authentication.
+
+The partner-switching flow is intended to demonstrate the interaction between two participants; it should not be treated as a secure, real-world shared account system.
+
+**Privacy note:** Do not enter private, sensitive, or confidential information into the demo.
+
+## Run Locally
+
+### Prerequisites
+
+- Node.js and npm installed
+- Git installed if you want to clone the repository
+
+### Setup
 
 ```bash
+git clone https://github.com/nainitiwari303/twofold.git
+cd twofold
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite (usually `http://localhost:5173`).
+Open the local URL printed by Vite in your terminal, usually `http://localhost:5173`.
 
-Build the production bundle:
+### Available Scripts
 
 ```bash
+npm run dev
 npm run build
 npm run preview
 ```
 
-## Demo walkthrough
+- `npm run dev` starts the development server.
+- `npm run build` creates a production build.
+- `npm run preview` serves the production build locally.
 
-1. Type an answer under **Your answer** and save it.
-2. Switch to the partner tab and enter a second demo answer.
-3. Save the partner answer; the reveal action becomes available.
-4. Reveal both answers.
-5. Open **Our little space** to edit demo names or copy the room code.
-6. Use **Reset demo** in the footer to clear the demo state.
+## Future Improvements
 
-Both demo identities are simulated in one browser. This is not authentication and is not evidence of cross-device synchronization.
+Potential next steps include:
 
-## Tech stack
+- Real shared sessions and synchronization across devices
+- Secure user authentication and authorization
+- Automated tests for key user flows
+- Improved loading, empty, and error states
+- More question categories and user preferences
 
-- React + TypeScript
-- Vite
-- Lucide icons
-- CSS with responsive breakpoints and reduced-motion support
-- `localStorage` for the Phase 1 demo only
-- Supabase client dependency reserved for the next backend phase
+These are planned improvements, not claims about existing functionality.
 
-## Engineering notes
+## What This Project Demonstrates
 
-- Client-side gating is for the demo only. In the real version, answer visibility must be enforced by a trusted backend/database policy, not merely hidden in React.
-- The Supabase service-role key must never be shipped to a browser. Only the public anon key may be used client-side, with strict Row Level Security policies enabled.
-- The current streak is sample demo data, not calculated from verified daily activity.
-- No real user data or production credentials are included.
+- Building an interactive React and TypeScript application
+- Managing UI state and user input
+- Designing a multi-step interaction flow
+- Providing validation and user feedback
+- Persisting demo state in the browser
+- Deploying a frontend application with Vercel
 
-## License
+---
 
-MIT — see `LICENSE`.
+Built as a portfolio project to learn and demonstrate practical product engineering.
